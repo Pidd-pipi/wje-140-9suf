@@ -12,4 +12,6 @@ export class VehicleEntity {
   @Column('float') mileage!: number;
   @Column('float') tankCapacity!: number;
   @Column('float') dailyFixedCost!: number;
+  @Column({ nullable: true }) nextMaintenanceDate?: string;
+  @Column({ type: 'float', nullable: true }) nextMaintenanceMileage?: number;
 }

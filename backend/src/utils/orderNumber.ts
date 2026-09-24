@@ -1,1 +1,4 @@
-export function generateOrderNo(prefix = 'DSP') { return `${prefix}-${new Date().toISOString().slice(0,10).replace(/-/g,'')}-0001`; }
+export function generateOrderNo(prefix = 'DSP', sequence = 1) {
+  const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  return `${prefix}-${date}-${String(sequence).padStart(4, '0')}`;
+}
