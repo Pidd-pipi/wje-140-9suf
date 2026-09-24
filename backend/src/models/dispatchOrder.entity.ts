@@ -19,4 +19,8 @@ export class DispatchOrderEntity {
   @Column('float') estimatedTollCost!: number;
   @Column() status!: string;
   @Column('float') profit!: number;
+  @Column({ default: '' }) precheckResult!: string;
+  @Column('simple-json', { nullable: true }) precheckReasons?: string[];
+  @Column({ nullable: true }) precheckAt?: string;
+  @Column({ nullable: true }) conflictReason?: string;
 }

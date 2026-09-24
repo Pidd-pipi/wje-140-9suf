@@ -17,8 +17,8 @@ Swagger 文档：http://localhost:19210/api-docs
 
 - /api/vehicles：车辆管理。
 - /api/drivers：司机管理。
-- /api/dispatch-orders：调度派单与状态流转。
-- /api/maintenance-records：维保管理。
+- /api/dispatch-orders：调度派单与状态流转（建单/改派/开始运输前做资格预检与冲突检查，详情返回预检结论与冲突原因；支持 reassign/start/complete/cancel）。
+- /api/maintenance-records：维保管理（开始维保前校验未完成调度，结束后车辆恢复可用；支持 start/complete）。
 - /api/fuel-records：油耗记录。
 - /api/cost-summaries：费用汇总与利润核算。
 
@@ -28,6 +28,13 @@ Swagger 文档：http://localhost:19210/api-docs
 cd backend
 npm install
 npm run start:dev
+```
+
+冒烟测试（资格预检、冲突、维保联动）：
+
+```bash
+cd backend
+npm run build && node scripts/smoke.js
 ```
 
 ## 技术栈
